@@ -3,17 +3,19 @@ spring:
     name: resume.builder
 
   datasource:
-    url: jdbc:h2:mem:resume-builder
-    driverClassName: org.h2.Driver
-    username: sa
+    url: jdbc:postgresql://postgres:5432/resume_builder
+    username: username
     password: password
+    driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     show-sql: true
-    database: h2
-    database-platform: org.hibernate.dialect.H2Dialect
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
 
   h2:
     console:
